@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import CategoryFilter from './components/CategoryFilter';
 import RecipeGrid from './components/RecipeGrid';
+import RecipeDetail from './pages/RecipeDetail';
 import recipes from './data/recipes';
 import './App.css';
 
@@ -35,6 +36,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/recipe/:id" element={<RecipeDetail />} />
           </Routes>
         </main>
         <Footer />
