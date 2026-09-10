@@ -1,0 +1,35 @@
+.favorites-title {
+  text-align: center;
+  font-size: 32px;
+  margin: 40px 0 0;
+}
+
+.favorites-empty {
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.favorites-empty p {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.favorites-empty h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.favorites-empty span {
+  color: var(--color-text-secondary);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.favorites-empty-link {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white !important;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 500;
+}

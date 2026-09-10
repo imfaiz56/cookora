@@ -108,3 +108,16 @@
     grid-template-columns: 1fr;
   }
 }
+.favorite-toggle-btn {
+  display: block;
+  margin-bottom: 28px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary);
+  background-color: white;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}

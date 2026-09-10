@@ -79,3 +79,23 @@
 .recipe-card-btn:hover {
   background-color: var(--color-primary-dark);
 }
+.recipe-card-favorite {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.recipe-card-favorite:hover {
+  transform: scale(1.1);
+}

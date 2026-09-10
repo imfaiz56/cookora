@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import recipes from '../data/recipes';
 import './RecipeDetail.css';
 
-function RecipeDetail() {
+function RecipeDetail({ favorites, onToggleFavorite }) {
   const { id } = useParams();
   const recipe = recipes.find((r) => r.id === parseInt(id));
 
@@ -15,6 +15,8 @@ function RecipeDetail() {
       </div>
     );
   }
+
+  const isFavorite = favorites.includes(recipe.id);
 
   return (
     <div className="recipe-detail">
@@ -33,6 +35,13 @@ function RecipeDetail() {
           <span>👥 {recipe.servings} servings</span>
           <span>🏷 {recipe.difficulty}</span>
         </div>
+
+        <button
+          className="favorite-toggle-btn"
+          onClick={() => onToggleFavorite(recipe.id)}
+        >
+          {isFavorite ? '❤️ Remove from Favorites' : '🤍 Add to Favorites'}
+        </button>
 
         <div className="recipe-detail-sections">
           <div className="recipe-detail-section">
