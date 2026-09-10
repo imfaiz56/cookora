@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import './Hero.css';
 
-function Hero() {
+function Hero({ searchTerm, onSearchChange }) {
   return (
     <section className="hero">
       <div className="hero-content">
@@ -15,12 +14,10 @@ function Hero() {
             type="text"
             placeholder="🔍 Search for recipes, ingredients..."
             className="hero-search-input"
+            value={searchTerm}
+            onChange={(e) => onSearchChange(e.target.value)}
           />
         </div>
-
-        <Link to="/" className="hero-btn">
-          Explore Recipes
-        </Link>
       </div>
     </section>
   );
