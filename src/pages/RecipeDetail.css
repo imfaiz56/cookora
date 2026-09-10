@@ -121,3 +121,59 @@
   font-weight: 500;
   cursor: pointer;
 }
+.recipe-detail-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: var(--color-text);
+}
+
+.delete-btn:hover {
+  border-color: #d9534f;
+  color: #d9534f;
+}
+
+.confirm-box {
+  background-color: #fff5f5;
+  border: 1px solid #f3c6c6;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cancel-btn,
+.confirm-delete-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #eee;
+}
+
+.confirm-delete-btn {
+  background-color: #d9534f;
+  color: white;
+}
