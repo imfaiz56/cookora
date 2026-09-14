@@ -8,11 +8,12 @@ function RecipeCard({ recipe, isFavorite, onToggleFavorite }) {
         <img src={recipe.image} alt={recipe.title} className="recipe-card-image" />
         <span className="recipe-card-category">{recipe.category}</span>
         <button
-          className={`recipe-card-favorite ${isFavorite ? 'active' : ''}`}
-          onClick={() => onToggleFavorite(recipe.id)}
-        >
-          {isFavorite ? '❤️' : '🤍'}
-        </button>
+  className={`recipe-card-favorite ${isFavorite ? 'active' : ''}`}
+  onClick={() => onToggleFavorite(recipe.id)}
+  aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+>
+  {isFavorite ? '❤️' : '🤍'}
+</button>
       </div>
 
       <div className="recipe-card-body">

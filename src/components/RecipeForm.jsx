@@ -64,8 +64,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
         <h3 className="form-section-title">🍽 Basic Details</h3>
 
         <div className="form-group">
-          <label>Recipe Name</label>
+          <label htmlFor="recipe-title">Recipe Name</label>
           <input
+            id="recipe-title"
             type="text"
             value={formData.title}
             onChange={(e) => handleChange('title', e.target.value)}
@@ -76,8 +77,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
 
         <div className="form-row">
           <div className="form-group">
-            <label>Category</label>
+            <label htmlFor="recipe-category">Category</label>
             <select
+              id="recipe-category"
               value={formData.category}
               onChange={(e) => handleChange('category', e.target.value)}
             >
@@ -90,8 +92,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
           </div>
 
           <div className="form-group">
-            <label>Difficulty</label>
+            <label htmlFor="recipe-difficulty">Difficulty</label>
             <select
+              id="recipe-difficulty"
               value={formData.difficulty}
               onChange={(e) => handleChange('difficulty', e.target.value)}
             >
@@ -103,8 +106,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
         </div>
 
         <div className="form-group">
-          <label>Image URL</label>
+          <label htmlFor="recipe-image">Image URL</label>
           <input
+            id="recipe-image"
             type="text"
             value={formData.image}
             onChange={(e) => handleChange('image', e.target.value)}
@@ -114,8 +118,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
         </div>
 
         <div className="form-group">
-          <label>Description</label>
+          <label htmlFor="recipe-description">Description</label>
           <textarea
+            id="recipe-description"
             value={formData.description}
             onChange={(e) => handleChange('description', e.target.value)}
             rows={3}
@@ -126,8 +131,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
 
         <div className="form-row">
           <div className="form-group">
-            <label>Cooking Time (min)</label>
+            <label htmlFor="recipe-cooktime">Cooking Time (min)</label>
             <input
+              id="recipe-cooktime"
               type="number"
               value={formData.cookTime}
               onChange={(e) => handleChange('cookTime', e.target.value)}
@@ -137,8 +143,9 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
           </div>
 
           <div className="form-group">
-            <label>Servings</label>
+            <label htmlFor="recipe-servings">Servings</label>
             <input
+              id="recipe-servings"
               type="number"
               value={formData.servings}
               onChange={(e) => handleChange('servings', e.target.value)}
@@ -159,9 +166,15 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
               value={ing}
               onChange={(e) => handleListChange('ingredients', index, e.target.value)}
               placeholder={`Ingredient ${index + 1}`}
+              aria-label={`Ingredient ${index + 1}`}
             />
             {formData.ingredients.length > 1 && (
-              <button type="button" className="remove-btn" onClick={() => removeListItem('ingredients', index)}>✕</button>
+              <button
+                type="button"
+                className="remove-btn"
+                onClick={() => removeListItem('ingredients', index)}
+                aria-label={`Remove ingredient ${index + 1}`}
+              >✕</button>
             )}
           </div>
         ))}
@@ -181,9 +194,15 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
               value={step}
               onChange={(e) => handleListChange('instructions', index, e.target.value)}
               placeholder={`Step ${index + 1}`}
+              aria-label={`Step ${index + 1}`}
             />
             {formData.instructions.length > 1 && (
-              <button type="button" className="remove-btn" onClick={() => removeListItem('instructions', index)}>✕</button>
+              <button
+                type="button"
+                className="remove-btn"
+                onClick={() => removeListItem('instructions', index)}
+                aria-label={`Remove step ${index + 1}`}
+              >✕</button>
             )}
           </div>
         ))}

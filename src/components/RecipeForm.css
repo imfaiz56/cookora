@@ -54,14 +54,14 @@
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 1.5px solid #e8e6e1;
+  border: 1.5px solid var(--color-accent-light);
   border-radius: 10px;
   font-family: var(--font-body);
   font-size: 14.5px;
   color: var(--color-text);
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  background-color: #fdfcfa;
+  background-color: var(--color-bg);
 }
 
 .form-group input::placeholder,
@@ -74,7 +74,7 @@
 .form-group textarea:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.12);
-  background-color: white;
+  background-color: var(--color-surface);
 }
 
 .form-error {
