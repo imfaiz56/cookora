@@ -1,7 +1,18 @@
 import RecipeCard from './RecipeCard';
+import SkeletonCard from './SkeletonCard';
 import './RecipeGrid.css';
 
-function RecipeGrid({ recipes, favorites, onToggleFavorite }) {
+function RecipeGrid({ recipes, favorites, onToggleFavorite, isLoading }) {
+  if (isLoading) {
+    return (
+      <div className="recipe-grid">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <SkeletonCard key={index} />
+        ))}
+      </div>
+    );
+  }
+
   if (recipes.length === 0) {
     return (
       <div className="recipe-grid-empty">

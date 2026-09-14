@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import RecipeGrid from '../components/RecipeGrid';
-import recipes from '../data/recipes';
 import './Favorites.css';
 
-function Favorites({ favorites, onToggleFavorite }) {
+function Favorites({ recipes, favorites, onToggleFavorite }) {
   const favoriteRecipes = recipes.filter((recipe) => favorites.includes(recipe.id));
 
   if (favoriteRecipes.length === 0) {

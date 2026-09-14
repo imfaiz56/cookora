@@ -59,89 +59,101 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
 
   return (
     <form className="recipe-form" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label>Recipe Name</label>
-        <input
-          type="text"
-          value={formData.title}
-          onChange={(e) => handleChange('title', e.target.value)}
-        />
-        {errors.title && <span className="form-error">{errors.title}</span>}
-      </div>
 
-      <div className="form-group">
-        <label>Category</label>
-        <select
-          value={formData.category}
-          onChange={(e) => handleChange('category', e.target.value)}
-        >
-          <option value="">Select a category</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
-        </select>
-        {errors.category && <span className="form-error">{errors.category}</span>}
-      </div>
+      <div className="form-section">
+        <h3 className="form-section-title">🍽 Basic Details</h3>
 
-      <div className="form-group">
-        <label>Image URL</label>
-        <input
-          type="text"
-          value={formData.image}
-          onChange={(e) => handleChange('image', e.target.value)}
-          placeholder="https://..."
-        />
-        {errors.image && <span className="form-error">{errors.image}</span>}
-      </div>
-
-      <div className="form-group">
-        <label>Description</label>
-        <textarea
-          value={formData.description}
-          onChange={(e) => handleChange('description', e.target.value)}
-          rows={3}
-        />
-        {errors.description && <span className="form-error">{errors.description}</span>}
-      </div>
-
-      <div className="form-row">
         <div className="form-group">
-          <label>Cooking Time (min)</label>
+          <label>Recipe Name</label>
           <input
-            type="number"
-            value={formData.cookTime}
-            onChange={(e) => handleChange('cookTime', e.target.value)}
+            type="text"
+            value={formData.title}
+            onChange={(e) => handleChange('title', e.target.value)}
+            placeholder="e.g. Creamy Garlic Pasta"
           />
-          {errors.cookTime && <span className="form-error">{errors.cookTime}</span>}
+          {errors.title && <span className="form-error">{errors.title}</span>}
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Category</label>
+            <select
+              value={formData.category}
+              onChange={(e) => handleChange('category', e.target.value)}
+            >
+              <option value="">Select a category</option>
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+            {errors.category && <span className="form-error">{errors.category}</span>}
+          </div>
+
+          <div className="form-group">
+            <label>Difficulty</label>
+            <select
+              value={formData.difficulty}
+              onChange={(e) => handleChange('difficulty', e.target.value)}
+            >
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
         </div>
 
         <div className="form-group">
-          <label>Servings</label>
+          <label>Image URL</label>
           <input
-            type="number"
-            value={formData.servings}
-            onChange={(e) => handleChange('servings', e.target.value)}
+            type="text"
+            value={formData.image}
+            onChange={(e) => handleChange('image', e.target.value)}
+            placeholder="https://..."
           />
-          {errors.servings && <span className="form-error">{errors.servings}</span>}
+          {errors.image && <span className="form-error">{errors.image}</span>}
         </div>
 
         <div className="form-group">
-          <label>Difficulty</label>
-          <select
-            value={formData.difficulty}
-            onChange={(e) => handleChange('difficulty', e.target.value)}
-          >
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
-          </select>
+          <label>Description</label>
+          <textarea
+            value={formData.description}
+            onChange={(e) => handleChange('description', e.target.value)}
+            rows={3}
+            placeholder="A short, tasty description of your recipe..."
+          />
+          {errors.description && <span className="form-error">{errors.description}</span>}
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Cooking Time (min)</label>
+            <input
+              type="number"
+              value={formData.cookTime}
+              onChange={(e) => handleChange('cookTime', e.target.value)}
+              placeholder="30"
+            />
+            {errors.cookTime && <span className="form-error">{errors.cookTime}</span>}
+          </div>
+
+          <div className="form-group">
+            <label>Servings</label>
+            <input
+              type="number"
+              value={formData.servings}
+              onChange={(e) => handleChange('servings', e.target.value)}
+              placeholder="4"
+            />
+            {errors.servings && <span className="form-error">{errors.servings}</span>}
+          </div>
         </div>
       </div>
 
-      <div className="form-group">
-        <label>Ingredients</label>
+      <div className="form-section">
+        <h3 className="form-section-title">🥕 Ingredients</h3>
         {formData.ingredients.map((ing, index) => (
           <div className="list-input-row" key={index}>
+            <span className="list-index">{index + 1}</span>
             <input
               type="text"
               value={ing}
@@ -149,7 +161,7 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
               placeholder={`Ingredient ${index + 1}`}
             />
             {formData.ingredients.length > 1 && (
-              <button type="button" onClick={() => removeListItem('ingredients', index)}>✕</button>
+              <button type="button" className="remove-btn" onClick={() => removeListItem('ingredients', index)}>✕</button>
             )}
           </div>
         ))}
@@ -159,10 +171,11 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
         {errors.ingredients && <span className="form-error">{errors.ingredients}</span>}
       </div>
 
-      <div className="form-group">
-        <label>Instructions</label>
+      <div className="form-section">
+        <h3 className="form-section-title">📋 Instructions</h3>
         {formData.instructions.map((step, index) => (
           <div className="list-input-row" key={index}>
+            <span className="list-index">{index + 1}</span>
             <input
               type="text"
               value={step}
@@ -170,7 +183,7 @@ function RecipeForm({ initialData, onSubmit, submitLabel }) {
               placeholder={`Step ${index + 1}`}
             />
             {formData.instructions.length > 1 && (
-              <button type="button" onClick={() => removeListItem('instructions', index)}>✕</button>
+              <button type="button" className="remove-btn" onClick={() => removeListItem('instructions', index)}>✕</button>
             )}
           </div>
         ))}

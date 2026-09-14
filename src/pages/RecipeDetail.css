@@ -177,3 +177,15 @@
   background-color: #d9534f;
   color: white;
 }
+.ingredients-list input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.ingredients-list label:has(input:checked) {
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+  transition: color 0.2s ease;
+}
