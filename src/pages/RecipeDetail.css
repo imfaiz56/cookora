@@ -109,21 +109,26 @@
   }
 }
 .favorite-toggle-btn {
-  display: block;
-  margin-bottom: 28px;
   padding: 10px 20px;
   border-radius: 8px;
-  border: 1px solid var(--color-primary);
+  border: 1.5px solid var(--color-primary);
   background-color: var(--color-surface);
   color: var(--color-primary);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease;
+}
+
+.favorite-toggle-btn:active {
+  transform: scale(0.97);
 }
 
 .recipe-detail-actions {
   display: flex;
+  align-items: stretch;
   gap: 12px;
   margin-bottom: 20px;
   flex-wrap: wrap;
@@ -137,11 +142,22 @@
   font-weight: 500;
   font-family: var(--font-body);
   cursor: pointer;
-  border: 1px solid var(--color-text-secondary);
+  border: 1.5px solid var(--color-accent-light);
   background-color: var(--color-surface);
   color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, transform 0.15s ease;
 }
 
+.edit-btn:hover,
+.delete-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.edit-btn:active,
+.delete-btn:active {
+  transform: scale(0.97);
+}
 .delete-btn:hover {
   border-color: #d9534f;
   color: #d9534f;

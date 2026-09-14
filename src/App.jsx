@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useSearchParams } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -16,9 +16,18 @@ import './App.css';
 import NotFound from './pages/NotFound';
 
 function Home({ recipes, favorites, onToggleFavorite }) {
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get('category');
+
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl || 'All');
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (categoryFromUrl) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 600);
