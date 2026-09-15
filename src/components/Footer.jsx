@@ -19,10 +19,10 @@ function Footer() {
 
         <div className="footer-col">
           <h4>Categories</h4>
-          <span>Breakfast</span>
-          <span>Lunch</span>
-          <span>Dinner</span>
-          <span>Dessert</span>
+          <Link to="/?category=Breakfast">Breakfast</Link>
+          <Link to="/?category=Lunch">Lunch</Link>
+          <Link to="/?category=Dinner">Dinner</Link>
+          <Link to="/?category=Dessert">Dessert</Link>
         </div>
       </div>
 

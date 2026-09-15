@@ -22,12 +22,14 @@ function Home({ recipes, favorites, onToggleFavorite }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl || 'All');
   const [isLoading, setIsLoading] = useState(true);
+  const [prevCategoryFromUrl, setPrevCategoryFromUrl] = useState(categoryFromUrl);
 
-  useEffect(() => {
+  if (categoryFromUrl !== prevCategoryFromUrl) {
+    setPrevCategoryFromUrl(categoryFromUrl);
     if (categoryFromUrl) {
       setSelectedCategory(categoryFromUrl);
     }
-  }, [categoryFromUrl]);
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 600);
